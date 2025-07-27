@@ -21,7 +21,6 @@ SEQ_LENGTHS=(
     32768
     16384
     8192
-    4096
 )
 
 MODEL_SELECT() {
@@ -35,8 +34,13 @@ MODEL_SELECT() {
             MODEL_TEMPLATE_TYPE="meta-chat"
             MODEL_FRAMEWORK="vllm"
             ;;
+        qwen2-7b-chat)
+            MODEL_PATH="${MODEL_DIR}/Qwen/Qwen2-7B-Instruct"
+            MODEL_TEMPLATE_TYPE="qwen2-chat"
+            MODEL_FRAMEWORK="vllm"
+            ;;
         llama3.1-8b-chat)
-            MODEL_PATH="${MODEL_DIR}/llama3.1-8b-Instruct"
+            MODEL_PATH="${MODEL_DIR}/meta-llama/Meta-Llama-3.1-8B-Instruct"
             MODEL_TEMPLATE_TYPE="meta-llama3"
             MODEL_FRAMEWORK="vllm"
             ;;
@@ -87,13 +91,13 @@ MODEL_SELECT() {
 
 
     if [ -z "${TOKENIZER_PATH}" ]; then
-        if [ -f ${MODEL_PATH}/tokenizer.model ]; then
-            TOKENIZER_PATH=${MODEL_PATH}/tokenizer.model
-            TOKENIZER_TYPE="nemo"
-        else
+        # if [ -f ${MODEL_PATH}/tokenizer.model ]; then
+        #     TOKENIZER_PATH=${MODEL_PATH}/tokenizer.model
+        #     TOKENIZER_TYPE="nemo"
+        # else
             TOKENIZER_PATH=${MODEL_PATH}
             TOKENIZER_TYPE="hf"
-        fi
+        # fi
     fi
 
 

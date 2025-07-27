@@ -34,4 +34,6 @@ Templates = {
     'jamba': "<|startoftext|><|bom|><|system|> <|eom|><|bom|><|user|> {task_template}<|eom|><|bom|><|assistant|>",
     
     'nemotron5-instruct': "<SPECIAL_10>System\n\n<SPECIAL_11>User\n{task_template}\n<SPECIAL_11>Assistant\n",
+    
+    'qwen2-chat': "<|im_start|>user\n{task_template}<|im_end|>\n<|im_start|>assistant\n",
 }

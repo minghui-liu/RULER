@@ -1,0 +1,7 @@
+nltk
+wonderwords
+tenacity
+nemo_toolkit[all]
+html2text
+huggingface_hub[cli]
+nemo
